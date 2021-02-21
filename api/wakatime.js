@@ -37,11 +37,12 @@ module.exports = async (req, res) => {
   try {
     const stats = await fetchWakatimeStats({ username, api_domain });
 
-    let cacheSeconds = clampValue(
+    /*let cacheSeconds = clampValue(
       parseInt(cache_seconds || CONSTANTS.TWO_HOURS, 10),
       CONSTANTS.TWO_HOURS,
       CONSTANTS.ONE_DAY,
-    );
+    );*/
+    let cacheSeconds = 0;
 
     if (!cache_seconds) {
       cacheSeconds = CONSTANTS.FOUR_HOURS;
