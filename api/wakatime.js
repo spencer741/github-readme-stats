@@ -44,12 +44,12 @@ module.exports = async (req, res) => {
     );*/
     let cacheSeconds = 0;
 
-    if (!cache_seconds) {
+    /*if (!cache_seconds) {
       cacheSeconds = CONSTANTS.FOUR_HOURS;
-    }
+    }*/
 
-    res.setHeader("Cache-Control", `public, max-age=${cacheSeconds}`);
-
+    //res.setHeader("Cache-Control", `public, max-age=${cacheSeconds}`);
+    res.setHeader("Cache-Control", "no-cache");
     return res.send(
       wakatimeCard(stats, {
         custom_title,
